@@ -1,0 +1,55 @@
+.button {
+    background-color: transparent;
+    text-transform: uppercase;
+    color: $color-btn;
+    padding: 0;
+    border: none;
+    font-weight: 700;
+    font-size: 1.11rem;
+    letter-spacing: 0.08em;
+    transition: all 0.3s;
+    align-self: start;
+
+    &_bordered {
+        border: 1px solid #e4e4e4;
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+            border: 1px solid #e54f3a;
+        }
+        @media screen and (max-width:480px) {
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__text {
+        display: block;
+        position: relative;
+        width: fit-content;
+        left: 50%;
+        transform: translateX(-50%);
+        &::after {
+            @include before-after($width: 100%, $height: 13px, $top: 11px, $left: 12px, $background: $color-btn);
+            opacity: 0.3;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: $color-btn-hover;
+    }
+    &:hover span:after {
+        background-color: $color-btn-hover;
+    }
+    &:focus-visible {
+        outline: none;
+    }
+    @media screen and (max-width: 920px) {
+        font-size: 1rem;
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 0.9rem;
+    }
+}

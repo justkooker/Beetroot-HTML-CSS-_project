@@ -1,0 +1,119 @@
+.block {
+    position: relative;
+    @include flexbox($display:flex,$direction:column,$gap:1.39vw);
+
+    &_col-reverse {
+        flex-direction: column-reverse;
+    }
+    &_gap-s {
+        gap: 1.04vw;
+    }
+    &_gap-m {
+        gap: 2.08vw;
+    }
+    &_gap-b {
+        gap: 2.77vw;
+    }
+    &_mb-40 {
+        margin-bottom: 2.77vw;
+    }
+    &_mb-50 {
+        margin-bottom: 3.47vw;
+    }
+    &_mb-100 {
+        margin-bottom: 6.94vw;
+    }
+    &_half-w {
+        width: calc(50% - 2.08vw);
+        @media screen and (max-width: 480px) {
+            width: 100%;
+        }
+    }
+    &_half-plus-w {
+        width: 85%;
+    }
+    &_bordered {
+        border-top: 1px solid #e4e4e4;
+        padding: 50px 30px 0;
+    }
+    &__title {
+        z-index: 1;
+        &_italic {
+            font-style: italic;
+            letter-spacing: 0.08em;
+        }
+    }
+
+    &__description {
+        position: relative;
+        font-family: "Lato", sans-serif;
+        color: $color-main-transparent;
+        line-height: 1.44;
+        font-weight: 300;
+        z-index: 1;
+
+        @media screen and (max-width: 992px) {
+            font-size: 0.8rem;
+        }
+        @media screen and (max-width: 480px) {
+            font-size: 0.9rem;
+        }
+
+        &_quote {
+            font-size: 1.77rem;
+            width: 68%;
+            letter-spacing: 0.04em;
+
+            @media screen and (max-width: 992px) {
+                & {
+                    font-size: 1.4rem;
+                    width: 90%;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                & {
+                    font-size: 1rem;
+                    width: 85%;
+                }
+            }
+        }
+        &_quote::before {
+            @include before-after(
+                $width: 100px,
+                $height: 81px,
+                $top: 0,
+                $left: 0,
+                $background: url(../assets/svg/quotes.svg) no-repeat
+            );
+            transform: translate(-55%, -44%);
+            background-size: contain;
+
+            @media screen and (max-width: 480px) {
+                & {
+                    display: none;
+                }
+            }
+        }
+        &_small-text {
+            @media screen and (min-width: 768px) and (max-width: 992px) {
+                font-size: 0.6rem;
+            }
+        }
+        &_smalled-w {
+            width: 35%;
+            @media screen and (min-width: 480px) {
+                & {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__colored-text {
+        color: $color-focus-text;
+        font-style: italic;
+    }
+    &_small-w {
+        max-width: 500px;
+    }
+}
